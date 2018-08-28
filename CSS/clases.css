@@ -1,0 +1,22 @@
+.Bars
+{
+    height: 47px;
+    width: 1200px;
+    background-color: rgb(92, 159, 137);
+}
+
+.Font_caption_HEAD
+{
+    font-family: 'Roboto';
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+}
+
+.Font_caption_BODY
+{
+    font-family: 'Roboto';
+    font-size: 30px;
+    font-style: italic;
+    color: black;
+}
