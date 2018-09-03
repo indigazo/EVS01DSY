@@ -10,13 +10,22 @@
     font-family: 'Roboto';
     font-size: 40px;
     font-weight: bold;
-    color: black;
+    color:black;
 }
 
-.Font_caption_BODY
+p.Font_caption_BODY
 {
     font-family: 'Roboto';
     font-size: 30px;
     font-style: italic;
-    color: black;
+    color: white;
+}
+
+.bg 
+{ 
+    background: url(../IMGS/perro_blur.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
