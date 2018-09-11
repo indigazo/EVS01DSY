@@ -5,7 +5,7 @@ class conexion {
     private $server = "localhost";
     private $user = "root";
     private $pass = "";
-    private $base = "mis_perris";
+    private $base = "bd_mis_perris";
     private $cone;
 
     function __construct() {

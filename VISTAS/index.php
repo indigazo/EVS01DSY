@@ -42,7 +42,7 @@
         <div class="carousel-inner">
 
             <div class="carousel-item active">
-                <img class="d-block w-100" style="height:500px; width:600px" src="../IMGS/adoptados/Apolo.jpg" alt="First slide">
+                <img class="d-block w-100" style="height:600px; width:600px" src="../IMGS/adoptados/Apolo.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block" style="padding-right: 100px;">
                     <h1 class="display-4" style="text-align: left; color:black">Apolo</h1>
                     <p class="lead" style="text-align: left; color:white; font-size: 30px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">
@@ -52,7 +52,7 @@
             </div>
 
             <div class="carousel-item">
-                <img class="d-block w-100" style="height:500px; width:600px" src="../IMGS/adoptados/Duque.jpg" alt="Second slide">
+                <img class="d-block w-100" style="height:600px; width:600px" src="../IMGS/adoptados/Duque.jpg" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block" style="padding-left: 100px; padding-bottom: 260px;">
                     <h1 class="display-4" style="text-align: right; color:black">Duque</h1>
                     <p class="lead" style="text-align: right; color:white; font-size: 30px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">
@@ -62,7 +62,7 @@
             </div>
 
             <div class="carousel-item">
-                <img class="d-block w-100" style="height: 500px; width:600px" src="../IMGS/adoptados/Tom.jpg" alt="Third slide">
+                <img class="d-block w-100" style="height: 600px; width:600px" src="../IMGS/adoptados/Tom.jpg" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block" style="padding-bottom: 90px;">
                     <h1 class="display-4" style="text-align: left; color:black">Tom</h1>
                     <p class="lead" style="text-align: left; color:white; font-size: 30px; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">

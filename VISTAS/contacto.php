@@ -52,6 +52,8 @@
                         type: 'post',
                         data: $("#Registro").serialize(),
                         success: function (data) {
+
+                            $("#txtMail").val(data);
                             if (data == 1) {
                                 alert('Registro completado! :)');
                                 window.location = 'succes.php';
@@ -65,10 +67,14 @@
             });
         });
     </script>
-
+    <?php
+        $cone = mysqli_connect("localhost", "root", "", "bd_mis_perris");
+        $reg = mysqli_query($cone, "select * from regiones");
+        $reg_provi = mysqli_query($cone, "select * from provincias");
+    ?>
     <!--BARRA SUPERIOR -->
     <div class="container-fluid" style="background-color: rgb(92, 159, 137);">
-        <?php echo 'Bienvenido! '.$usuario; ?>
+        <h5 class="text-white lead"><?php echo 'Bienvenido! '.$usuario; ?></h5>
         <center>
             <img style="position: relative; padding-top: 10px; padding-bottom: 10px" src="../IMGS/logo.png">
         </center>
@@ -98,7 +104,7 @@
                     <!--RUN (Requerido)-->
                     <div class="form-group text-left">
                         <label for="txtRut" style="text-align: left; color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Run</label>
-                        <input type="text" name="txtRut" class="form-control" id="txtRut" placeholder="Rut">
+                        <input type="text" maxlength="9" name="txtRut" class="form-control" id="txtRut" placeholder="Rut">
                         <small id="rutHelp" class="form-text" style="color:lightgray;">Ingrese rut sin puntos ni guion.</small>
                     </div>
 
@@ -123,21 +129,38 @@
                     <div class="form-group text-left">
                         <label for="numPhone" style="text-align: left; color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Telefono
                             de contacto</label>
-                        <input type="number" name="numPhone" class="form-control" id="numPhone" placeholder="Ingrese su numero sin +569">
+                        <input type="number" name="numPhone" class="form-control" id="numPhone" placeholder="+569" disabled>
+                    </div>
+                    <div class="form-group text-left">
+                        <input type="number" name="numPhone" class="form-control" id="numPhone" placeholder="Ingrese su numero">
                         <small id="phoneHelp" class="form-text" style="color:lightgray;">Solo numeros.</small>
                     </div>
 
                     <!--REGIÓN (Requerido)-->
                     <div class="form-group text-left">
                         <label for="cboRegion" style="text-align: left; color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Región</label>
-                        <input type="number" name="cboRegion" class="form-control" id="cboRegion">
+                        <select name="cboRegion" class="form-control" id="cboRegion">
+                            <?php
+                                while($row = mysqli_fetch_array($reg))
+                                {
+                                    echo '<option value='.$row[0].'>'.$row[1].' '.$row[2].'</option>';
+                                }
+                            ?>
+                        </select>
                         <small id="regionHelp" class="form-text" style="color:lightgray;">Seleccione su región.</small>
                     </div>
 
                     <!--CIUDAD (Requerido)-->
                     <div class="form-group text-left">
                         <label for="cboCiudad" style="text-align: left; color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Ciudad</label>
-                        <input type="number" name="cboCiudad" class="form-control" id="cboCiudad">
+                        <select name="cboCiudad" class="form-control" id="cboCiudad">
+                        <?php
+                            while($row = mysqli_fetch_array($reg_provi))
+                            {
+                                echo '<option value='.$row[0].'>'.$row[1].'</option>';
+                            }
+                        ?>
+                        </select>
                         <small id="cityHelp" class="form-text" style="color:lightgray;">Seleccione ciudad.</small>
                     </div>
 
@@ -146,10 +169,10 @@
                         <label for="cboHouse" style="text-align: left; color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Tipo
                             de vivienda</label>
                         <select name="cboHouse" class="form-control" id="cboHouse">
-                            <option value="pat_big">Casa con patio grande</option>
-                            <option value="pat_small">Casa con patio pequeño</option>
-                            <option value="pat_no">Casa sin patio</option>
-                            <option value="dept">Departamento</option>
+                            <option value="patio_grande">Casa con patio grande</option>
+                            <option value="patio_pequeno">Casa con patio pequeño</option>
+                            <option value="patio_no_patio">Casa sin patio</option>
+                            <option value="departamento">Departamento</option>
                         </select>
                         <small id="houseHelp" class="form-text" style="color:lightgray;">Seleccione su tipo de vivienda.</small>
                     </div>

@@ -3,6 +3,7 @@
 include_once 'conexion.php';
 include_once '../MODELO/usuario.php';
 
+
 class DaoUsuario {
 
     private $cone;
@@ -18,15 +19,15 @@ class DaoUsuario {
     //CRUD
     public function Crear($usuario) {
         try {
-            $sql = "insert into usuario values('@correo','@rut','@nombre_completo','@fec_nacimiento',@telefono,
-                     @region_idregion, @ciudad_idciudad, '@tipo_vivienda')";
+            $sql = "insert into voluntarios values('@correo','@rut','@nombre_completo','@fec_nacimiento',@telefono,
+                     @region_id, @provincia_id, '@tipo_vivienda')";
             $sql = str_replace("@correo", $usuario->getCorreo(), $sql);
             $sql = str_replace("@rut", $usuario->getRun(), $sql);
             $sql = str_replace("@nombre_completo", $usuario->getNombre(), $sql);
             $sql = str_replace("@fec_nacimiento", $usuario->getFecnac(), $sql);
             $sql = str_replace("@telefono", $usuario->getTelefono(), $sql);
-            $sql = str_replace("@region_idregion", $usuario->getRegion(), $sql);
-            $sql = str_replace("@ciudad_idciudad", $usuario->getCiudad(), $sql);
+            $sql = str_replace("@region_id", $usuario->getRegion(), $sql);
+            $sql = str_replace("@provincia_id", $usuario->getCiudad(), $sql);
             $sql = str_replace("@tipo_vivienda", $usuario->getVivienda(), $sql);
             $filas_afectadas = $this->cone->SqlOperacion($sql);
             return $filas_afectadas;

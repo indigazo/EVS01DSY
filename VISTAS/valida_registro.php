@@ -14,23 +14,18 @@ include_once '../CONTROLADOR/DaoUsuario.php';
 include_once '../MODELO/usuario.php';
 
 $usu = new usuario();
+
 $usu->setCorreo($correo);
 $usu->setRun($rut);
-$usu->setFecnac($nombre);
-$usu->setTelefono($fec_nac);
-$usu->setRegion($telefono);
+$usu->setNombre($nombre);
+$usu->setFecnac($fec_nac);
+$usu->setTelefono($telefono);
+$usu->setRegion($region);
 $usu->setCiudad($ciudad);
 $usu->setVivienda($vivienda);
 
 $dao = new DaoUsuario();
 $resp = $dao->Crear($usu);
 
-if ($resp > 0) 
-{
-    echo 1;
-}
-else
-{
-    echo 0;
-}
+if ($resp > 0) {echo 1;} else {echo 0;}
 

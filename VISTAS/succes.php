@@ -11,7 +11,7 @@
     <title>Registro completo!</title>
 </head>
 
-<body style="background-image: linear-gradient(rgb(100, 159, 137),rgb(39, 58, 41))">
+<body style="background-color: rgb(92, 159, 137);" >
     <!-- COSAS QUE INCLUI -->
     <link rel="stylesheet" href="../CSS/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -24,7 +24,7 @@
 
     <!--BARRA SUPERIOR -->
     <div class="container-fluid" style="background-color: rgb(92, 159, 137);">
-        <?php echo 'Bienvenido! '.$usuario; ?>
+        <h5 class="text-white lead"><?php echo 'Bienvenido! '.$usuario; ?></h5>
         <center>
             <img style="position: relative; padding-top: 10px; padding-bottom: 10px" src="../IMGS/logo.png">
         </center>
@@ -35,8 +35,12 @@
 
     <!--FORMULARIO-->
     <center style="padding-top: 100px; padding-bottom: 100px">
-        <div class="container-fluid col-sm-6 border border-white rounded">
-            <h1>TODO LISTO!</h1>
+        <div class="container-fluid col-sm-6 border border-white rounded"  style="padding-bottom:20px;">
+            <h1 class="h1 text-white">TODO LISTO!</h1>
+            <p class="lead text-white text-center">Click en el boton para volver al menu principal</p>
+            <form action="index.php">
+                <button type="submit" class="btn btn-primary border">Volver al menu</button>
+            </form>
         </div>
     </center>
 
