@@ -196,7 +196,7 @@
                     <!--VISOR DE IMAGENES-->
                     <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
-                            <div class="modal-content" style="background-color: rgb(92, 159, 137)">
+                            <div class="modal-content col-md-10" style="background-color: rgb(92, 159, 137)">
                                 <div class="modal-header">
                                     <h3 class="modal-title h3" id="image-gallery-title" style="color:white"></h3>
                                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
@@ -211,7 +211,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <img id="image-gallery-image" class="img-responsive col-md-12 rounded" style="position: relative;"
+                                    <img id="image-gallery-image" class="img-responsive col-md-10" style="position: relative; width: 60%; height: 40%"
                                         src="../IMGS/rescatados">
                                 </div>
                             </div>

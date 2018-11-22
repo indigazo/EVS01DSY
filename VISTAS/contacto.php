@@ -23,27 +23,88 @@
     <link rel="stylesheet" href="../CSS/clases.css">
     <script src="../JS/JQUERY/jquery.js"></script>
     <script src="../JS/JQUERY/jquery.validate.js"></script>
+    <script src="../JS/JQUERY/lettersonly.js"></script>
+    <script src="../JS/JQUERY/rutOnly.js"></script>
+    <script src="../JS/JQUERY/dateIta.js"></script>
     <script>
+        $(document).ready(function(event){
+                $("#cboRegion").change(function(){
+                    var id=$("#cboRegion").val();
+                    $.ajax({
+                        url: "../CONTROLADOR/llenar_combo.php",
+                        type: 'POST',
+                        data: {region: id},
+                        success: function(data){
+                            $('#cboCiudad').html(data);
+                        }
+                    });
+                });
+            });
         $(document).ready(function (event) {
             $("#Registro").validate({
-                rules: {
+                rules: 
+                {
                     txtMail: "required",
                     txtRut: "required",
                     txtName: "required",
                     dtDate: "required",
+
+                    //Reglas para el campo e-mail
+                    txtMail: 
+                    {
+                        required: true,
+                        email: true 
+                    },
+
+                    //Reglas para el campo rut
+                    txtRut: 
+                    {
+                        required: true, 
+                        rutOnly: true,
+                        minlength: 9,
+                        maxlength: 10
+                    },
+
+                    //Reglas para el campo name
+                    txtName: 
+                    {
+                        required: true,
+                        lettersonly: true
+                    },         
+                    
+                    //Caracteres del numero de telefono
+                    numPhone:
+                    {
+                        maxlength: 8,
+                        minlength: 8
+                    }
                 },
-                messages: {
-                    txtMail: {
-                        required: "Ingrese un correo"
+                messages: 
+                {
+                    txtMail: 
+                    {
+                        required: "Ingrese un correo",
+                        email: "Ingrese un correo valido"
                     },
-                    txtRut: {
-                        required: "Ingrese un rut"
+                    txtRut: 
+                    {
+                        required: "Ingrese un rut",
+                        minlength: "El rut debe tener al menos 8 caracteres",
+                        maxlength: "El rut debe tener un máximo de 9 caracteres"
                     },
-                    txtName: {
-                        required: "Ingrese un nombre"
+                    txtName: 
+                    {
+                        required: "Ingrese un nombre",
+                        lettersonly: "El nombre solo puede tener letras"
                     },
-                    dtDate: {
-                        required: "Seleccione una fecha"
+                    dtDate: 
+                    {
+                        required: "Seleccione una fecha",
+                    },
+                    numPhone:
+                    {
+                        maxlength: "El telefono solo puede tener 8 numeros",
+                        minlength: "El telefono solo puede tener 8 numeros"
                     }
                 },
                 submitHandler: function (form) {
@@ -52,8 +113,7 @@
                         type: 'post',
                         data: $("#Registro").serialize(),
                         success: function (data) {
-
-                            $("#txtMail").val(data);
+                            //$("#txtMail").val(data);
                             if (data == 1) {
                                 alert('Registro completado! :)');
                                 window.location = 'succes.php';
@@ -104,8 +164,8 @@
                     <!--RUN (Requerido)-->
                     <div class="form-group text-left">
                         <label for="txtRut" style="text-align: left; color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Run</label>
-                        <input type="text" maxlength="9" name="txtRut" class="form-control" id="txtRut" placeholder="Rut">
-                        <small id="rutHelp" class="form-text" style="color:lightgray;">Ingrese rut sin puntos ni guion.</small>
+                        <input type="text" maxlength="10" name="txtRut" class="form-control" id="txtRut" placeholder="Rut">
+                        <small id="rutHelp" class="form-text" style="color:lightgray;">Ingrese rut sin puntos y con guion.</small>
                     </div>
 
                     <!--NOMBRE COMPLETO (Requerido)-->
@@ -154,12 +214,7 @@
                     <div class="form-group text-left">
                         <label for="cboCiudad" style="text-align: left; color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;">Ciudad</label>
                         <select name="cboCiudad" class="form-control" id="cboCiudad">
-                        <?php
-                            while($row = mysqli_fetch_array($reg_provi))
-                            {
-                                echo '<option value='.$row[0].'>'.$row[1].'</option>';
-                            }
-                        ?>
+
                         </select>
                         <small id="cityHelp" class="form-text" style="color:lightgray;">Seleccione ciudad.</small>
                     </div>
